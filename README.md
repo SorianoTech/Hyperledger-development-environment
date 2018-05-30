@@ -27,7 +27,7 @@ Prerrequisitos
 
 Reiniciar
 
-VSCode
+Instalación de VSCode
 ------
 https://code.visualstudio.com
 
@@ -50,9 +50,11 @@ Nos permite crear esqueletos de aplicaciones, fiheros, componentes. Son utilidad
 
 Prototipador de aplicaciones:
 >npm install -g yo 
+
+Composer Playground:
 >npm install -g composer-playground 
 
-Ignorar los warnnings
+Ignorar los warnnings.
 Reiniciar (Hasta aquí todavía no tenemos Fabric instalado)
 
 Para lanzar el entorno desde el terminal:
@@ -69,7 +71,7 @@ Descargarmos el fichero:
 Descomprimimos:
 >tar -xvf fabric-dev-servers.tar.gz
 
-En este momento puede ser interesante instalar Kitematic
+En este momento puede ser interesante instalar Kitematic. Es una aplicación para gestionar los contenedores de Docker:
 https://github.com/docker/kitematic/releases
 
 Arranque de Fabric
