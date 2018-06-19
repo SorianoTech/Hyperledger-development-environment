@@ -45,8 +45,11 @@ Playground es el entorno web que nos crea composer para poder modelizar nuestra 
 Tenemos dos opciones:
  * Modelar nuestras red mediante playground
  * Modelar nuestra red generando una estructura de ficheros con yeoman.
+ * 
 
 
 
+![Imagen][logo]
 
+[logo]: ../images/logo.jpg "Test de imagen"
 [folder]: ../images/folder.png "Carpetas de la red de negocio"
