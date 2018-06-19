@@ -1,0 +1,127 @@
+Vamos a usar una definición de ejemplo para ver como se hace
+
+Paso 1. Creamos la estructura de Red
+------------------------------------
+
+>yo hyperledger-composer:businessnetwork
+
+Nos crea una aplicacion entera que nos permite dar de alta:
+ - asset
+ - Participantes
+ - transcacciones
+
+Paso 2. Nos vamos a "model" y editamos el fichero "*.cto" y ponemos el contenido siguiente:
+--------------------------------------------------------------------------------------------
+
+/**
+ * My commodity trading network
+ */
+namespace org.acme.biznet
+asset Commodity identified by tradingSymbol {
+    o String tradingSymbol
+    o String description
+    o String mainExchange
+    o Double quantity
+    --> Trader owner
+}
+participant Trader identified by tradeId {
+    o String tradeId
+    o String firstName
+    o String lastName
+}
+transaction Trade {
+    --> Commodity commodity
+    --> Trader newOwner
+}
+
+Paso 2. Nos vamos a "lib" y editamos el fichero "logic.js" y ponemos el contenido siguiente:
+------------------------------------------------------------------------------------------
+
+/**
+ * Track the trade of a commodity from one trader to another
+ * @param {org.acme.biznet.Trade} trade - the trade to be processed
+ * @transaction
+ */
+async function tradeCommodity(trade) {
+    trade.commodity.owner = trade.newOwner;
+    let assetRegistry = await getAssetRegistry('org.acme.biznet.Commodity');
+    await assetRegistry.update(trade.commodity);
+}
+
+Paso 3. Creamos un fichero para los permisos de nombre "permissions.acl"
+------------------------------------------------------------------------
+
+>touch permission.acl
+
+Introducimos el siguiente contenido "Lista Blanca"
+
+/**
+ * Access control rules for tutorial-network
+ */
+rule Default {
+    description: "Allow all participants access to all resources"
+    participant: "ANY"
+    operation: ALL
+    resource: "org.acme.biznet.*"
+    action: ALLOW
+}
+
+rule SystemACL {
+  description:  "System ACL to permit all access"
+  participant: "ANY"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}
+
+Paso 4. Generación del fichero BNA
+-----------------------------------
+
+>composer archive create -t dir -n .
+
+Paso 5. Creacionismos de Credenciales de Administrador
+------------------------------------------------------
+En “fabric-dev-servers” ejecutamos el script “createPeerAdminCard.sh”
+Se nos crea “PeerAdmin@hlfv1”
+
+Paso 6. Despliegue
+------------------
+>composer network install --card PeerAdmin@hlfv1 --archiveFile <nombre>@0.0.1.bna
+
+>composer network start --networkName tutorial-network --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card --networkVersion 0.0.1 
+
+>composer card import --file networkadmin.card 
+
+>composer network ping --card admin@tutorial-network
+
+
+Paso 6. Generación del servidor REST
+-----------------------------------
+
+>composer-rest-server
+
+
+A VECES ERROR CON COMPOSER-REST-SERVER
+--------------------------------------
+
+npm i ieee754 --save-dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

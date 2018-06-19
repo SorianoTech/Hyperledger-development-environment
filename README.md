@@ -72,15 +72,18 @@ Descomprimimos:
 >tar -xvf fabric-dev-servers.tar.gz
 
 En este momento puede ser interesante instalar Kitematic. Es una aplicación para gestionar los contenedores de Docker:
-https://github.com/docker/kitematic/releases
 
-Arranque de Fabric
+>https://github.com/docker/kitematic/release
+
+>
+
+Descargamos Fabric
 ------------------
 >cd ~/fabric-dev-servers 
 
 >./downloadFabric.sh
 
-Arranque del Playground
+Arranque del Fabric
 -----------------------
 >cd ~/fabric-dev-servers 
 
