@@ -51,5 +51,5 @@ Tenemos dos opciones:
 
 ![Imagen][logo]
 
-[logo]: images/logo.jpg "Test de imagen"
-[folder]: images/folder.png "Carpetas de la red de negocio"
+[logo]: ../images/logo.jpg "Test de imagen"
+[folder]: ../images/folder.png "Carpetas de la red de negocio"
