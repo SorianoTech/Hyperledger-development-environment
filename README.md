@@ -65,7 +65,7 @@ Instalación de Fabric
 Creamos una carpeta:
 >mkdir ~/fabric-dev-servers && cd ~/fabric-dev-servers 
 
-Descargarmos el fichero:
+Descargarmos el fichero de herramientas de desarrolo:
 >curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz 
 
 Descomprimimos:
@@ -90,33 +90,4 @@ Arranque del Fabric
 >./startFabric.sh 
 
 
-Conectar nodos entre si
--------------------------
-Descargamos los fabric samples, el comando descarga el scrio de la web: https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh
 
->curl -sSL https://goo.gl/6wtTN5 | bash -s 1.1.0 
-
-Añadimos el directorio para poder ejecutar los scripts desde cualquier lugar del sistema
-
-Actualizamos la lista de PATH
->PATH=$PATH:$HOME/fabric-samples/bin/
-
-
-## Configuración de Docker para uso en Red 
->docker swarm init --advertise-addr 192.168.56.101
-
-Para obtener el token para añadir orto equipo a este swaarm
->docker swarm join-token manager
-
-Copiamos la informacion que nos devuelve para introducir en el otro equipo.
-
-Si queremos dejar de ser manager del swarm
->docker swarm leave --force
-
-Creamos la red
->docker network create --attachable --driver overlay my-net
-
-En el equipo 2
->docker swarm join --token SWMTKN-1-0z5y1o9sm1nv0e95n13pcuntrc9gfjv1alwx0za2dfanmzdcd7-bpzwthhraykggmgz25b7c14m1 192.168.56.104:2377
-
-![2computer](images/Image3.png)

@@ -76,7 +76,6 @@ rule SystemACL {
 
 Paso 4. Generación del fichero BNA
 -----------------------------------
-
 >composer archive create -t dir -n .
 
 Paso 5. Creacionismos de Credenciales de Administrador
@@ -84,26 +83,25 @@ Paso 5. Creacionismos de Credenciales de Administrador
 En “fabric-dev-servers” ejecutamos el script “createPeerAdminCard.sh”
 Se nos crea “PeerAdmin@hlfv1”
 
-Paso 6. Despliegue
+Paso 6. Despliegue en composer para probar la red
 ------------------
 >composer network install --card PeerAdmin@hlfv1 --archiveFile <nombre>@0.0.1.bna
 
 >composer network start --networkName tutorial-network --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card --networkVersion 0.0.1 
 
 >composer card import --file networkadmin.card 
+Aparece la card en $/.composer/cards
 
 >composer network ping --card admin@tutorial-network
 
 
 Paso 6. Generación del servidor REST
 -----------------------------------
-
 >composer-rest-server
 
 
 A VECES ERROR CON COMPOSER-REST-SERVER
 --------------------------------------
-
 npm i ieee754 --save-dev
 
 

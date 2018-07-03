@@ -56,4 +56,7 @@ Arranque del Playground
 
 
 
+Actualización
+---------------
+npm yo install
 
