@@ -20,7 +20,7 @@ Dentro del composer podemos encontrar los siguientes elmentos:
 - Blockchain state storage
 - Conection profile
 - Identies
-- Cards
+- [Cards](#cards)
 - Querys
 - Acces List
 - History Registry
@@ -33,7 +33,9 @@ Recursos:
 - Enum Type
 - Conceps
 
-
+## Cards <a name="cards"></a>
+Las Cards nos permiten acceder a nuestra red de negocio.
+tenemos que tener creada al principio una para poder gestionar las demas.
 
 ## Ficheros de configuración
  Estos ficheros nos permiten realizar busquedas de información dentro de la cadena. 

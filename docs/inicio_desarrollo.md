@@ -1,11 +1,20 @@
-Vamos a usar una definición de ejemplo para ver como se hace
+# ¿Qué vamos a encontrar en este documento?
+Los pasos necesarios para desplegar una red empresaria en un entorno de desarollo
+
+* Paso 1: Creación de la estructura de red de negocio
+* Paso 2: Definición de la red de negocio
+* Paso 3: Generación del archivo de red de negocio (bna) en base a lo anterior
+* Paso 4: Creación de credenciales de administrador
+* Paso 5: Despliegue de la nueva red dentro de Fabric
+* Paso 6: Publicamos un servidor REST para acceder a la Blockchain
+
 
 Paso 1. Creamos la estructura de Red
 ------------------------------------
 
 >yo hyperledger-composer:businessnetwork
 
-Nos crea una aplicacion entera que nos permite dar de alta:
+Nos crea una estructura de archivos entera que nos permite dar de alta:
  - asset
  - Participantes
  - transcacciones
@@ -85,6 +94,8 @@ Se nos crea “PeerAdmin@hlfv1”
 
 Paso 6. Despliegue en composer para probar la red
 ------------------
+Esto nos levantara el docker peer0.org
+
 >composer network install --card PeerAdmin@hlfv1 --archiveFile <nombre>@0.0.1.bna
 
 >composer network start --networkName tutorial-network --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card --networkVersion 0.0.1 
@@ -94,10 +105,12 @@ Aparece la card en $/.composer/cards
 
 >composer network ping --card admin@tutorial-network
 
-
 Paso 6. Generación del servidor REST
 -----------------------------------
 >composer-rest-server
+composer-rest-server -c networkcarname -n never -a true -w true
+
+donde "networkcarname" es el nombre de la card
 
 
 A VECES ERROR CON COMPOSER-REST-SERVER
