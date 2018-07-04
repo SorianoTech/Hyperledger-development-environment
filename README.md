@@ -73,7 +73,7 @@ Descomprimimos:
 
 En este momento puede ser interesante instalar Kitematic. Es una aplicación para gestionar los contenedores de Docker:
 
->https://github.com/docker/kitematic/release
+>https://github.com/docker/kitematic/releases
 
 >
 

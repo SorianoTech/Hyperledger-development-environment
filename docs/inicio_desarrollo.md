@@ -83,16 +83,16 @@ rule SystemACL {
   action: ALLOW
 }
 
-Paso 4. Generación del fichero BNA
+Paso 3. Generación del fichero BNA
 -----------------------------------
 >composer archive create -t dir -n .
 
-Paso 5. Creacionismos de Credenciales de Administrador
+Paso 4. Creacionismos de Credenciales de Administrador
 ------------------------------------------------------
 En “fabric-dev-servers” ejecutamos el script “createPeerAdminCard.sh”
 Se nos crea “PeerAdmin@hlfv1”
 
-Paso 6. Despliegue en composer para probar la red
+Paso 5. Despliegue en composer para probar la red
 ------------------
 Esto nos levantara el docker peer0.org
 
