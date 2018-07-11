@@ -1,43 +1,50 @@
+Esta página contiene información sobre los comandos o script que mas utilizaremos. Esta divida en:
+
+- Fabric
+- Composer
+- Composer play-ground
+- Docker
+- Yeoman
 
 
-Fabric
----------------
-Arranque de Fabric
->cd ~/fabric-dev-servers 
->./startFabric.sh 
-
-Si lanzamos el script ./startFabric.sh nos borra todos los docker y los levanta de nuevo
-
-
-Para resetear la base de datos
-Borra todos los docker(y me los tiene que descargar luego)
->teardownAllDocker.sh (completo)
-Tira los docker pero no me los borra
->teardownFabric.sh (menos agresivo)
-
-
-
-composer card delete -c PeerAdmin@byfn-network-org1
-
->docket stats
->docker ps
-
-
-
+---------------------------------------------------------------------------------------------------------------
 -----Comandos necesarios para levantar el docker de dev cuando ya tenemos los otros dockers levantados---------
+---------------------------------------------------------------------------------------------------------------
 
 >composer network install --card PeerAdmin@hlfv1 --archiveFile <nombre>@0.0.1.bna
 
 >composer network start --networkName land-registry --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card --networkVersion 0.0.1
 
 >composer card import --file networkadmin.card 
-nos lo importa en .composer
 
-composer-rest-server -c admin@land-registry -n always -w true
+Solo si queremos importar la card en composer, este comando nos lo importa en .composer
 
+>composer-rest-server -c admin@land-registry -n always -w true
+
+Fabric
+---------------
+Arranque de Fabric
+
+>cd ~/fabric-dev-servers 
+>./startFabric.sh 
+
+Si lanzamos el script ./startFabric.sh nos borra todos los docker y los levanta de nuevo
+
+Para resetear la base de datos
+Borra todos los docker(y me los tiene que descargar luego)
+>teardownAllDocker.sh (completo)
+
+Tira los docker pero no me los borra
+
+>teardownFabric.sh (menos agresivo)
+
+composer card delete -c PeerAdmin@byfn-network-org1
+
+>docket stats
+>docker ps
 
 #Herramientas fabric samples 1.1
-Web de donde tira el enlace de abajo
+Web de donde descarga el enlace de abajo
 https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh
 
 >curl -sSL http://bit.ly/2ysbOFE | bash -s 1.2.0-rc1
