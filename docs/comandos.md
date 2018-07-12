@@ -11,15 +11,7 @@ Esta página contiene información sobre los comandos o script que mas utilizare
 -----Comandos necesarios para levantar el docker de dev cuando ya tenemos los otros dockers levantados---------
 ---------------------------------------------------------------------------------------------------------------
 
->composer network install --card PeerAdmin@hlfv1 --archiveFile <nombre>@0.0.1.bna
 
->composer network start --networkName land-registry --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card --networkVersion 0.0.1
-
->composer card import --file networkadmin.card 
-
-Solo si queremos importar la card en composer, este comando nos lo importa en .composer
-
->composer-rest-server -c admin@land-registry -n always -w true
 
 Fabric
 ---------------
@@ -52,6 +44,16 @@ https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh
 
 Composer
 ------------
+>composer network install --card PeerAdmin@hlfv1 --archiveFile <nombre>@0.0.1.bna
+
+>composer network start --networkName land-registry --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card --networkVersion 0.0.1
+
+>composer card import --file networkadmin.card 
+
+Solo si queremos importar la card en composer, este comando nos lo importa en .composer
+------- este me levanta el dev-peer------------
+>composer-rest-server -c admin@land-registry -n always -w true
+
 List business network from card admin@land-registry (esto me levanta el docker de dev)
 >composer network list -c admin@land-registry
 
@@ -99,4 +101,28 @@ Monaje Angular 4 application
 
 Real Fabric usually in a group called "hlfv1"
 
+https://medium.freecodecamp.org/ultimate-end-to-end-tutorial-to-create-an-application-on-blockchain-using-hyperledger-3a83a80cbc71
 
+
+
+NPM
+---------
+Inside that directory, you can run several commands:
+
+  npm start
+    Starts the development server.
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
+We suggest that you begin by typing:
+
+  cd landregistry
+  npm start

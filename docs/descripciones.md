@@ -2,8 +2,7 @@ El composer nos sirve para realizar el diseño de la red.
 
 Fabric lo utilizamos para desplegar los ficheros que hemos creado en composer para desplegar la red.
 
-
-Podemos crear la red de negocio con los ficheros que se crean con yeoman y luego desplegarlo en composer con la los compandos de composer network install
+Podemos crear la red de negocio con los ficheros que se crean con yeoman y luego desplegarlo en composer con los comandos de composer network install.
 
 Luego podemos instalarlo en fabric, ¿Cómo?
 
