@@ -15,5 +15,5 @@ composer network start --networkName hypercert-network --networkAdmin admin --ne
 composer network start --networkName hypercert-network --networkAdmin admin --networkAdminEnrollSecret adminpw --card admin@hypercert-network --file networkadmin.card --networkVersion 0.0.2
 
 
-# Levanta el rest-server como servicio
+# Levanta el rest-server como servicio con el &
 composer-rest-server -c admin@hypercert-network -n never -w true &
